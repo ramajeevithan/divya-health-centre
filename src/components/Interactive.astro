@@ -12,7 +12,7 @@ import EducationCenter from './EducationCenter.jsx';
         <section id="education-center" class="py-16 bg-gray-100">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-8" style="color:black">Patient Education Center</h2>
-                <EducationCenter client:visible />
+                <div id="education-center-app"><EducationCenter client:load /></div>
             </div>
         </section>
 
@@ -20,7 +20,7 @@ import EducationCenter from './EducationCenter.jsx';
         <section id="virtual-tour" class="py-16">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-8">Explore Your Digestive System</h2>
-                <VirtualTour client:visible />
+                <div id="virtual-tour-app"><VirtualTour client:load /></div>
             </div>
         </section>
 
@@ -28,7 +28,7 @@ import EducationCenter from './EducationCenter.jsx';
         <section id="symptom-checker" class="py-16 bg-gray-100">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-8">Symptom Checker</h2>
-                <SymptomChecker client:visible />
+                <div id="symptom-checker-app"><SymptomChecker client:load /></div>
             </div>
         </section>
     </div>
@@ -121,9 +121,5 @@ import EducationCenter from './EducationCenter.jsx';
         }
     }
 </style>
-
-
-
-</div>
 
 <script is:inline src="/feedback.js"></script>
