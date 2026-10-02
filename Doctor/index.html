@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			 <link href="favicon.ico" rel="icon">
+    <title>GastroClinic Doctor Login</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #9b2890, #c13584);
+            overflow: hidden;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 320px;
+            position: relative;
+            z-index: 1;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        input:focus {
+            border-color: #9b2890;
+            box-shadow: 0 0 8px rgba(255, 126, 95, 0.5);
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #9b2890;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #e86a4d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #ff7e5f;
+        }
+        .error {
+            color: #ff4136;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .stomach {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: #feb47b;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            top: -100px;
+            left: -100px;
+            z-index: 0;
+            opacity: 0.5;
+        }
+        .pill {
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            z-index: 0;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="stomach"></div>
+    <div class="login-container">
+        <div class="icon">👨‍⚕️</div>
+        <h2>GastroClinic Doctor Login</h2>
+        <form id="loginForm" action="config.html" method="post">
+            <input type="text" id="username" name="username" placeholder="Doctor ID" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign In</button>
+			<!-- Centering the Home button -->
+    <div style="text-align: center; margin-top: 10px;">
+        <a href="../index.html" class="home-btn" 
+           style="background-color: red; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;"
+           onmouseover="this.style.backgroundColor='red';"
+           onmouseout="this.style.backgroundColor='red';">
+           Exit
+        </a>
+    </div>
+        </form>
+            </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Animate login container
+            anime({
+                targets: '.login-container',
+                scale: [0.8, 1],
+                opacity: [0, 1],
+                easing: 'easeOutElastic(1, .8)',
+                duration: 1200
+            });
+
+            // Animate doctor icon
+            anime({
+                targets: '.icon',
+                rotate: [{ value: '1turn', duration: 1200 }],
+                scale: [0.5, 1],
+                easing: 'easeInOutQuad'
+            });
+
+            // Create floating pills
+            for (let i = 0; i < 5; i++) {
+                const pill = document.createElement('div');
+                pill.classList.add('pill');
+                pill.style.top = `${Math.random() * 100}%`;
+                pill.style.left = `${Math.random() * 100}%`;
+                pill.style.transform = `rotate(${Math.random() * 360}deg)`;
+                document.body.appendChild(pill);
+
+                anime({
+                    targets: pill,
+                    translateX: anime.random(-50, 50),
+                    translateY: anime.random(-50, 50),
+                    rotate: anime.random(-45, 45),
+                    duration: anime.random(3000, 5000),
+                    easing: 'easeInOutQuad',
+                    loop: true,
+                    direction: 'alternate'
+                });
+            }
+
+            // Animate stomach
+            anime({
+                targets: '.stomach',
+                scale: [1, 1.1],
+                duration: 2000,
+                easing: 'easeInOutQuad',
+                direction: 'alternate',
+                loop: true
+            });
+
+            const form = document.getElementById('loginForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                anime({
+                    targets: 'input, button',
+                    scale: [1, 0.95],
+                    duration: 100,
+                    easing: 'easeInOutQuad',
+                    direction: 'alternate',
+                    complete: function(anim) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+
+        // Prevent going back to logged-in pages
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+</body>
+</html>
