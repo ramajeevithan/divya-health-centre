@@ -1,0 +1,121 @@
+.feedback-form, .feedback-list {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box; /* Ensure padding doesn't increase width */
+}
+
+.feedback-form button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Make button full width on small screens */
+}
+
+.feedback-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.feedback-form button[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.5);
+}
+
+.stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    margin-bottom: 10px;
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+     font-size: 24px;
+	 padding: 0 2px; /* Add some spacing between stars */
+    color: #ccc;
+    cursor: pointer;
+}
+
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label {
+    color: #f0c330;
+}
+
+.feedback-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.feedback-item:last-child {
+    border-bottom: none;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Ensure it wraps if needed */
+}
+
+.pagination a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border: 1px solid #ddd;
+    margin: 4px; /* Adjust margin for better spacing */
+    min-width: 40px; /* Set a minimum width to ensure small buttons */
+    flex-grow: 1; /* Allow buttons to grow evenly */
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .feedback-form, .feedback-list {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .pagination {
+        flex-direction: column; /* Stack the buttons vertically on small screens */
+    }
+
+    .feedback-item {
+        padding: 8px 0; /* Adjust item padding for smaller screens */
+    }
+
+    .stars {
+        flex-direction: colomn; /* Stack stars vertically */
+    }
+
+    .stars label {
+        font-size: 1.5em; /* Reduce star size on small screens */
+    }
+
+    .user-info img {
+        width: 30px; /* Adjust user image size for small screens */
+        height: 30px;
+    }
+}
