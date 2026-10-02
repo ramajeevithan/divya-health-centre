@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #9b2890;
+}
+
+.imagescontainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.tiless {
+     background-color: #9b2890;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.tiless h3, .tiless p {
+    color: white; /* Ensure text remains visible on the new background */
+}
+
+.tiless img {
+    width: 100%;
+    height: auto;
+}
+
+.tiless h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.tiless p {
+    padding: 0 10px;
+    color: #666;
+}
+
+.tiless:hover {
+    transform: scale(1.05);
+}
