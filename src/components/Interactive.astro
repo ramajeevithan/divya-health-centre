@@ -1,0 +1,129 @@
+---
+import SymptomChecker from './SymptomChecker.jsx';
+import VirtualTour from './VirtualTour.jsx';
+import EducationCenter from './EducationCenter.jsx';
+---
+<!-- ===============Education Center ===========--- !-->
+
+    <!-- Right Column: Feedback Section -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <!-- Left Column: Education Center, Symptom Checker, and Virtual Tour -->
+    <div style="flex: 1; padding-right: 20px;">
+        <section id="education-center" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8" style="color:black">Patient Education Center</h2>
+                <EducationCenter client:visible />
+            </div>
+        </section>
+
+        <!-- Virtual Digestive System Tour -->
+        <section id="virtual-tour" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8">Explore Your Digestive System</h2>
+                <VirtualTour client:visible />
+            </div>
+        </section>
+
+        <!-- Interactive Symptom Checker -->
+        <section id="symptom-checker" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8">Symptom Checker</h2>
+                <SymptomChecker client:visible />
+            </div>
+        </section>
+    </div>
+<style is:global>
+    @media (max-width: 768px) {
+        div {
+            flex: 100%; /* Stacks columns on smaller screens */
+        }
+
+        .feedback-list {
+            padding: 0 10px; /* Add padding for smaller screens */
+        }
+
+        .feedback-form {
+            width: 100%; /* Make the feedback form take full width */
+            padding: 10px; /* Add padding for better spacing */
+        }
+
+        .feedback-item {
+            margin-bottom: 10px; /* Add margin between feedback items */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .feedback-form textarea {
+            width: 100%; /* Make the textarea full width */
+            resize: none; /* Disable resizing */
+        }
+
+        .stars {
+            display: flex; /* Make stars line up horizontally */
+            justify-content: center; /* Center stars */
+			flex-direction: row-reverse; 
+        }
+    }
+</style>
+
+    <!-- Right Column: Feedback Section -->
+    <div style="flex: 1; padding-left: 20px;">
+        <div class="feedback-list">
+            <h2>Previous Feedback</h2>
+            <div class='feedback-item'><div class='user-info'><img src='https://lh3.googleusercontent.com/a/ACg8ocKO3cs5ocVir5jW3AZ3QHd3CUEZQ7akeY66iKSmZI4Z393wO4bNXw=s96-c' alt='User Profile' width='50' height='50'><p>santhanam.sudha@gmail.com</p></div><p>Rating: ★★★★★</p><p>Comment: Doctor.Vijay Baskar is very kind and attentive when we explain our problems. In the midst of heavy work, he read all the previous medical issues with great patience. Really I was mentally relieved of my pain because of the care he took. We can trust his guidance as he is not giving unnecessary medicine or tests.</p></div><div class='feedback-item'><div class='user-info'><img src='https://lh3.googleusercontent.com/a/ACg8ocK_8YfRAjTZPn98Be5wo2DYa-OyK2lYgAbjL8-1p0EoDafpIb5g=s96-c' alt='User Profile' width='50' height='50'><p>vigneshhelloworld@gmail.com</p></div><p>Rating: ★★★★★</p><p>Comment: Excellent clinic good care, doctor spend precious time to understand patient problem giving solution and staff also take care amazingly best clinic in kanchipuram </p></div><div class='feedback-item'><div class='user-info'><img src='https://lh3.googleusercontent.com/a/ACg8ocLy4A_D1yzHYqzkuYQdaL-ZB26z4QztJQeufGM_cQZgP3x0ZV6G=s96-c' alt='User Profile' width='50' height='50'><p>sridharansridharan716@gmail.com</p></div><p>Rating: ★★★★★</p><p>Comment: Very good 👍🏻📈</p></div><div class='feedback-item'><div class='user-info'><img src='https://lh3.googleusercontent.com/a/ACg8ocK83on2-eMRIKTHJV9hgE7OCMIIB2sapNsrFvcs1DK2-OZjQw=s96-c' alt='User Profile' width='50' height='50'><p>kannamukesh2883@gmail.com</p></div><p>Rating: ★★★★☆</p><p>Comment: well care</p></div>
+            <div class="pagination">
+                 <a href="?page=1" class="active">1</a>            </div>
+
+            <div class="feedback-form">
+                <h2>Submit Your Feedback</h2>
+                <div id="g_id_onload" style="height:50px;width:50px";
+                     data-client_id="598804029561-fmtr7rajd9t9galf3albdrr1dsv2pnc1.apps.googleusercontent.com"
+                     data-callback="handleCredentialResponse" >
+                </div>
+               <div class="custom-g-signin" style="display: flex; align-items: center; cursor: pointer;" onclick="handleGoogleSignIn()">
+    <div class="g_id_signin"
+         data-type="icon"
+         data-size="large"
+         data-theme="outline"
+         data-shape="rectangular"
+         data-logo_alignment="left">
+    </div>
+    <span style="margin-left: 10px; color: #4285F4; font-size: 1em;">Sign in with Google</span>
+</div>
+                <form id="feedback-form" action="/index.html" method="post" style="display: none;">
+                    <div id="user-info" class="user-info"></div>
+                    <div class="stars">
+                        <input type="radio" name="rating" id="star5" value="5" required><label for="star5" class="fa fa-star"></label>
+                        <input type="radio" name="rating" id="star4" value="4"><label for="star4" class="fa fa-star"></label>
+                        <input type="radio" name="rating" id="star3" value="3"><label for="star3" class="fa fa-star"></label>
+                        <input type="radio" name="rating" id="star2" value="2"><label for="star2" class="fa fa-star"></label>
+                        <input type="radio" name="rating" id="star1" value="1"><label for="star1" class="fa fa-star"></label>
+                    </div>
+                    <div>
+                        <textarea name="comment" rows="4" cols="50" placeholder="Type your comment here..." required></textarea>
+                    </div>
+                    <input type="hidden" name="email" id="user-email">
+                    <input type="hidden" name="profile_pic" id="user-profile-pic">
+                    <div>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style is:global>
+    @media (max-width: 326px) {
+        div {
+            flex: 80%; /* Stacks columns on small screens */
+        }
+    }
+</style>
+
+
+
+</div>
+
+<script is:inline src="/feedback.js"></script>

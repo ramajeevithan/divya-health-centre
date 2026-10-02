@@ -1,0 +1,144 @@
+---
+---
+<!-- ======= Counts Section ======= -->
+    	<style is:global>
+.dashboard2024_container {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.dashboard2024_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard2024_card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.dashboard2024_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.dashboard2024_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #9b2890, #6a1b86);
+}
+
+.dashboard2024_icon_wrap {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.dashboard2024_icon {
+    font-size: 32px;
+    background: linear-gradient(45deg, #9b2890, #6a1b86);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dashboard2024_number {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 10px 0;
+    background: linear-gradient(45deg, #9b2890, #6a1b86);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Arial', sans-serif;
+}
+
+.dashboard2024_title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.dashboard2024_desc {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+@keyframes dashboard2024_pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .dashboard2024_grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .dashboard2024_number {
+        font-size: 36px;
+    }
+}
+</style>
+<div class="dashboard2024_container">
+    <div class="dashboard2024_grid">
+        <div class="dashboard2024_card">
+            <div class="dashboard2024_icon_wrap">
+                <i class="fas fa-user-md dashboard2024_icon"></i>
+            </div>
+            <div class="dashboard2024_number" data-dashboard-count="2">0</div>
+            <h3 class="dashboard2024_title">Expert Doctors</h3>
+            <p class="dashboard2024_desc">Specialized medical professionals dedicated to your care</p>
+        </div>
+        
+        <div class="dashboard2024_card">
+            <div class="dashboard2024_icon_wrap">
+                <i class="far fa-hospital dashboard2024_icon"></i>
+            </div>
+            <div class="dashboard2024_number" data-dashboard-count="2">0</div>
+            <h3 class="dashboard2024_title">Departments</h3>
+            <p class="dashboard2024_desc">Comprehensive medical specialties under one roof</p>
+        </div>
+        
+        <div class="dashboard2024_card">
+            <div class="dashboard2024_icon_wrap">
+                <i class="fas fa-flask dashboard2024_icon"></i>
+            </div>
+            <div class="dashboard2024_number" data-dashboard-count="2">0</div>
+            <h3 class="dashboard2024_title">Research Labs</h3>
+            <p class="dashboard2024_desc">State-of-the-art facilities for advanced diagnostics</p>
+        </div>
+        
+        <div class="dashboard2024_card">
+            <div class="dashboard2024_icon_wrap">
+                <i class="fas fa-award dashboard2024_icon"></i>
+            </div>
+            <div class="dashboard2024_number" data-dashboard-count="10">0</div>
+            <h3 class="dashboard2024_title">Awards</h3>
+            <p class="dashboard2024_desc">Recognition for excellence in healthcare services</p>
+        </div>
+    </div>
+</div>
+<script is:inline src="/Animate.js"></script>
+    <!-- End Counts Section -->
